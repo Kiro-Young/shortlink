@@ -1,6 +1,7 @@
 package com.kiro.shortlink.admin.controller;
 
 import com.kiro.shortlink.admin.common.convention.result.Result;
+import com.kiro.shortlink.admin.common.convention.result.Results;
 import com.kiro.shortlink.admin.dto.resp.UserRespDTO;
 import com.kiro.shortlink.admin.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.kiro.shortlink.admin.common.enums.UserErrorCodeEnums.USER_EXIST;
 import static com.kiro.shortlink.admin.common.enums.UserErrorCodeEnums.USER_NULL;
 
 /**
@@ -35,8 +35,7 @@ public class UserController {
             return new Result<UserRespDTO>()
                     .setCode(USER_NULL.code()).setMessage(USER_NULL.message());
         } else {
-            return new Result<UserRespDTO>()
-                    .setCode(USER_EXIST.code()).setData(result).setMessage(USER_EXIST.message());
+            return Results.success(result);
         }
     }
 }
