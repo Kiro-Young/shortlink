@@ -37,4 +37,9 @@ public class UserController {
     public Result<UserActualRespDTO> getActualUserByUsername(@PathVariable("username") String username) {
         return Results.success(BeanUtil.toBean(userService.getUserByUsername(username), UserActualRespDTO.class));
     }
+
+    @GetMapping("/api/shortlink/v1/user/has/{username}")
+    public Result<Boolean> hasUsername(@PathVariable("username") String username) {
+        return Results.success(userService.hasUsername(username));
+    }
 }
