@@ -2,6 +2,7 @@ package com.kiro.shortlink.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.kiro.shortlink.admin.dao.entity.UserDO;
+import com.kiro.shortlink.admin.dto.req.UserRegisterReqDTO;
 import com.kiro.shortlink.admin.dto.resp.UserRespDTO;
 import org.springframework.stereotype.Service;
 
@@ -27,4 +28,10 @@ public interface UserService extends IService<UserDO> {
      * @return 是否存在，返回true为存在
      */
     Boolean hasUsername(String username);
+
+    /**
+     * 用户注册
+     * @param userRegisterReqDTO 用户注册请求参数
+     */
+    void register(UserRegisterReqDTO userRegisterReqDTO);
 }

@@ -7,7 +7,11 @@ public enum UserErrorCodeEnums implements IErrorCode {
     // ========== 二级宏观错误码 用户信息错误 ==========
     USER_NULL("B000200", "用户记录不存在"),
 
-    USER_EXIST("B000201", "用户记录存在");
+    USER_NAME_EXIST("B000201", "用户名已存在"),
+
+    USER_EXIST("B000202", "用户记录存在"),
+
+    USER_SAVE_ERROR("B000203", "用户记录保存失败");
 
     private final String code;
 
