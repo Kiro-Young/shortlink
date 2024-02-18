@@ -1,8 +1,8 @@
 package com.kiro.shortlink.admin.dao.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.kiro.shortlink.admin.common.serialize.PhoneDesensitizationSerializer;
 import lombok.Data;
 
 import java.util.Date;
@@ -54,16 +54,19 @@ public class UserDO {
     /**
      * 创建时间
      */
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
     /**
      * 修改时间
      */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
     /**
      * 删除标识：0未删除 1已删除
      */
+    @TableField(fill = FieldFill.INSERT)
     private Integer delFlag;
 
 }
