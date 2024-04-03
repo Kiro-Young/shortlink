@@ -2,6 +2,9 @@ package com.kiro.shortlink.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.kiro.shortlink.admin.dao.entity.GroupDO;
+import com.kiro.shortlink.admin.dto.resp.ShortLinkGroupRespDTO;
+
+import java.util.List;
 
 /**
  * @author Kiro
@@ -26,4 +29,10 @@ public interface GroupService extends IService<GroupDO> {
      * @param groupName 分组名称
      */
     void saveGroup(String username, String groupName);
+
+    /**
+     * 查询短链接分组集合
+     * @return 用户短链接分组集合
+     */
+    List<ShortLinkGroupRespDTO> listGroup();
 }

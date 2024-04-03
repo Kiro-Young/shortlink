@@ -3,11 +3,15 @@ package com.kiro.shortlink.admin.controller;
 import com.kiro.shortlink.admin.common.convention.result.Result;
 import com.kiro.shortlink.admin.common.convention.result.Results;
 import com.kiro.shortlink.admin.dto.req.ShortLinkGroupSaveReqDTO;
+import com.kiro.shortlink.admin.dto.resp.ShortLinkGroupRespDTO;
 import com.kiro.shortlink.admin.service.GroupService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author Kiro
@@ -30,6 +34,14 @@ public class GroupController {
     public Result<Void> save(@RequestBody ShortLinkGroupSaveReqDTO shortLinkGroupSaveReqDTO) {
         groupService.saveGroup(shortLinkGroupSaveReqDTO.getName());
         return Results.success();
+    }
+
+    /**
+     * 查询短链接分组集合
+     */
+    @GetMapping("/api/short-link/admin/v1/group")
+    public Result<List<ShortLinkGroupRespDTO>> listGroup() {
+        return Results.success(groupService.listGroup());
     }
 
 }
