@@ -12,4 +12,18 @@ import com.kiro.shortlink.admin.dao.entity.GroupDO;
 
 public interface GroupService extends IService<GroupDO> {
 
+    /**
+     * 新增短链接分组
+     *
+     * @param groupName 分组名称
+     */
+    void saveGroup(String groupName);
+
+    /**
+     * 新增短链接分组
+     *
+     * @param username  用户名
+     * @param groupName 分组名称
+     */
+    void saveGroup(String username, String groupName);
 }
