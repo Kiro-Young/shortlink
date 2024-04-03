@@ -20,8 +20,8 @@ public class RBloomFilterConfiguration {
      */
     @Bean
     public RBloomFilter<String> userRegisterCachePenetrationBloomFilter(RedissonClient redissonClient) {
-        RBloomFilter<String> cachePenetrationBloomFilter = redissonClient.getBloomFilter("xxx");
-        cachePenetrationBloomFilter.tryInit(100000000L, 0.001);
+        RBloomFilter<String> cachePenetrationBloomFilter = redissonClient.getBloomFilter("BloomFilter:userRegister");
+        cachePenetrationBloomFilter.tryInit(100000L, 0.001);
         return cachePenetrationBloomFilter;
     }
 }
