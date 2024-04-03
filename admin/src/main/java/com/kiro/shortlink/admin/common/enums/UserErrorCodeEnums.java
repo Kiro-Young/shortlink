@@ -13,7 +13,8 @@ public enum UserErrorCodeEnums implements IErrorCode {
 
     USER_SAVE_ERROR("B000203", "用户记录保存失败"),
 
-    USER_LOGIN_ERROR("B000204", "用户登录错误");
+    USER_LOGIN_ERROR("B000204", "用户登录错误"),
+    USER_LOGOUT_ERROR("B000205", "用户Token不存在或用户未登录");
 
     private final String code;
 
